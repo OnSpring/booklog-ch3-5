@@ -1,0 +1,11 @@
+<%@ page pageEncoding="UTF-8"%> <!-- ① -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<footer class="container">
+	<a href="http://bookonspring.com">BookOnSpring</a> | 
+	<fmt:message key="common.Language"/>=${pageContext.response.locale.language} <!-- ④ -->
+	(<a href="?locale="><fmt:message key="common.Default"/></a> / <!-- ④ -->
+	<a href="?locale=ko_KR"><fmt:message key="common.Korean"/></a> /
+	<a href="?locale=en_US"><fmt:message key="common.English"/></a> )
+</footer>
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/bootstrap/bootstrap.min.js"></script>

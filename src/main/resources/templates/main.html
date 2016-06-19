@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- ② -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/webjars/bootstrap/bootstrap.min.css" />
+<title th:text="${title}">Title</title> <!-- ③ -->
+</head>
+<body>
+	<section class="container">
+		<h1 th:text="${title}">Title</h1> <!-- ④ -->
+		<div th:text="${message}">${message}</div> <!-- ⑤ -->
+		<div th:text="${nowDate}">Now Date time</div>
+		<a th:href="@{'/post/list'}" href="list.html"
+			role="button" class="btn btn-info">List</a> 
+		<a th:href="@{'/post/write'}" href="form.html"> <!-- ⑥ -->
+			<button type="button" class="btn btn-success">Write</button>
+		</a>
+	</section>
+</body>
+</html>

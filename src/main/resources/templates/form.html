@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/webjars/bootstrap/bootstrap.min.css" />
+<title>Post Form</title>
+</head>
+<body>
+	<section class="container">
+		<h2>글쓰기</h2>
+		<hr />
+		<form method="post" action="post.html"
+			th:action="@{${#httpServletRequest.servletPath}}">
+			<fieldset class="form-group">
+				<label for="formBookTitle">bookTitle</label>
+				<input id="formBookTitle" type="text" class="form-control"
+					name="bookTitle" th:field="${post.bookTitle}"
+					placeholder="Title input" /> 
+			</fieldset>
+			<fieldset class="form-group">
+				<label for="formContent">Content</label>
+				<textarea id="formContent" class="form-control" name="content"
+					rows="3" th:field="${post.content}"></textarea>
+			</fieldset>
+			<input type="submit" class="btn btn-primary" value="저장" />
+		</form>
+	</section>
+</body>
+</html>
