@@ -59,7 +59,8 @@
 <div class="media">
   <div class="media-body">
 	{{{content}}}<br>
-	<h5 class="media-heading" style="display: inline-block;">{{userName}}</h5> on {{createdAt}} 
+	<h5 class="media-heading" style="display: inline-block;">{{userName}}</h5> on {{createdAt}}
+	<button type="button" class="btn btn-danger btn-sm" onclick="if(!confirm('<fmt:message key="post.delete.btn.msg"/>')){return false;} deleteComment({{postId}}, {{id}});"><fmt:message key="common.Delete" /></button>
     <br>
   </div>
 </div>
@@ -109,6 +110,20 @@
 			});
 		}
 
+		function deleteComment(postId, commentId) {
+			$.ajax({
+				type : "DELETE",
+				url : "/comments/" + commentId + "?postId=" + postId,
+				dataType : 'json',
+				success : function(data, status) {
+					loadComment();
+				},
+				error : function(data, status) {
+					alert(data.responseJSON.message);
+				}
+			});
+		}
+		
 		loadComment();
 	</script>
 
