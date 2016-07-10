@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/post")
 public class PostController {
+
 	@Autowired
 	private PostDao postDao;
 

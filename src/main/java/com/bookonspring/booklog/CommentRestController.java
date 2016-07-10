@@ -3,7 +3,6 @@ package com.bookonspring.booklog;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CommentRestController {
 
-	@Autowired
 	CommentDao commentDao;
+
+	public CommentRestController(CommentDao commentDao) {
+		this.commentDao = commentDao;
+	}
 
 	@RequestMapping(value = "/comments", method = RequestMethod.GET)
 	public List<Comment> list(@RequestParam(value = "postId", required = true) int postId) {
